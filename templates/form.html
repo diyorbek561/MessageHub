@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xabar Yuborish</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light py-5">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-primary text-white text-center py-3">
+                        <h4 class="mb-0 fw-bold">Xabar yuborish</h4>
+                    </div>
+                    
+                    <div class="card-body p-4">
+                        <!-- METHOD va ACTION to'g'ri berilganiga ishonch hosil qiling -->
+                        <form method="post">
+                            {% csrf_token %}
+
+                            {% if form.errors %}
+                                <div class="alert alert-danger">
+                                    Iltimos, kiritilgan ma'lumotlarni tekshiring!
+                                </div>
+                            {% endif %}
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Ism</label>
+                                {{ form.first_name }}
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Familiya</label>
+                                {{ form.last_name }}
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Telefon raqam</label>
+                                {{ form.phone_number }}
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Email</label>
+                                {{ form.email }}
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Yuboriladigan xabar</label>
+                                {{ form.sended_message }}
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg fw-bold">Yuborish</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
